@@ -1,0 +1,71 @@
+@import 'reset';
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+#main {
+    background-color: #FF9D00;
+    height: 100vh;
+    width: 100vw;
+    .start {
+        width: 900px;
+        flex-wrap: wrap;
+        .start-title-num {
+            font-size: 240px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 12px 0px 0px #000000;
+            width: 30%;
+        }
+        .start-title {
+            font-size: 96px;
+            font-weight: bold;
+            width: 70%;
+            span {
+                width: 102px;
+                height: 25px;
+                font-size: 44px;
+                color: white;
+                line-height: 0px;
+                border-bottom: 10px double #ffffff;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        .start-btn {
+            background-color: #000000;
+            color: #FF9D00;
+            width: 350px;
+            font-size: 36px;
+            border: 0;
+            cursor: pointer;
+            padding: 8px 0;
+            margin-top: 100px;
+        }
+        p {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            color: #FFFFFF;
+            padding: 4px 0;
+        }
+    }
+
+    .gaming {
+        width: 900px;
+        flex-wrap: wrap;
+        
+    }
+}
