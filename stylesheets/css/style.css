@@ -108,3 +108,17 @@ body {
     width: 900px;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
+    #main .gaming .gaming-header {
+      width: 60%;
+      font-size: 30px; }
+      #main .gaming .gaming-header .gaming-title {
+        width: 342px;
+        color: white;
+        border: 4px solid white; }
+      #main .gaming .gaming-header .gaming-score {
+        font-size: 44px;
+        color: #000000; }
+        #main .gaming .gaming-header .gaming-score span {
+          font-size: 30px;
+          background-color: white;
+          color: #FF9D00; }
