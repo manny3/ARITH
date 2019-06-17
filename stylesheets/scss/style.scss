@@ -79,7 +79,7 @@ body {
                 font-size: 44px;
                 color: #000000;
                 line-height: 54px;
-                span {
+                .score-title {
                     display: inline-block;
                     vertical-align: top;
                     padding: 0px 10px;
@@ -116,7 +116,6 @@ body {
             }
             .gaming-answer {
                 background-color: white;
-                padding: 0 40px;
                 position: relative;
                 &::after {
                     content: 'press enter to answer';
@@ -130,6 +129,12 @@ body {
                     width: 100%;
                     text-align: center;
                     font-weight: initial;
+                }
+                .answer {
+                    font-size: 112px;
+                    max-width: 255px;
+                    text-align: center;
+                    font-weight: bold;
                 }
                 
             }

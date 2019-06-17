@@ -1,8 +1,8 @@
-let isPlaying = false, isEnd = false
-let score = 0, time = 60, ans = 0
+let isPlaying = false, isEnd = false //開始及結束變數
+let score = 0, time = 60, ans = 0	
 let playing 
-const startBtn = document.querySelector('.startBtn')
-const timeNode = document.querySelector('.time')
+const startBtn = document.querySelector('.startBtn') //開始紐
+const timeNode = document.querySelector('.time') //
 const subjectNode = document.querySelector('.subject')
 const ansNode = document.querySelector('.answer')
 const scoreNode = document.querySelector('.score')
@@ -28,7 +28,7 @@ function gaming () {
 			isEnd = true
 			checkStatus()
 		}
-		timeNode.innerHTML = `<i>00:${time < 10 ? '0' + time : time}</i>`
+		timeNode.innerHTML = `00 : ${time < 10 ? '0' + time : time}`
 		if (time > 0) time--		
 	}, 1000)
 }
@@ -47,7 +47,7 @@ function subjectType (num1, num2, t) {
 	let type = ''
 	switch (t) {
 		case 0:
-			ans = ~~(num1 + num2)
+			ans = ~~(num1 + num2)//~~取整數
 			type = '+'
 			break
 		case 1:
@@ -63,7 +63,9 @@ function subjectType (num1, num2, t) {
 			type = '÷'
 			break
 	}
-	subjectNode.innerHTML = `${num1} <span class="white">${type}</span> ${num2} <span class="white">=</span>`
+	subjectNode.innerHTML = `<span>${num1}</span><span>${type}</span><span>${num2}</span><span>=</span>`
+	// `${num1} <span class="white">${type}</span> ${num2} <span class="white">=</span>`
+							
 }
 function checkAns(e) {
 	if (e.key === 'Enter') {
@@ -80,8 +82,8 @@ function checkAns(e) {
 }
 function checkStatus () {
 	const start = document.querySelector('.start')
-	const main = document.querySelector('.main')
-	const restart = document.querySelector('.restart')
+	const main = document.querySelector('.gaming')
+	const restart = document.querySelector('.end')
 	start.style.display = 'none'
 	main.style.display = 'none'
 	restart.style.display = 'none'

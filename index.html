@@ -24,21 +24,23 @@
 
 <body class="main">
     <div id="main" class="flex-center">
-        <div class="start flex-center hidden">
+        <div class="start flex-center">
             <div class="start-title-num ">60</div>
             <div class="start-title">SECONDS<span>+−×÷</span><br>CHALLENGE</div>
-            <button class="start-btn">START!</button>
+            <button class="start-btn startBtn">START!</button>
             <p>try to answer more as you can</p>
         </div>
-        <div class="gaming flex-center hidden">
+        <div class="gaming flex-center">
             <div class="gaming-header">
                 <div class="gaming-title">60 SECONDS CHALLENGE</div>
-                <div class="gaming-score"><span>SCORE</span>001</div>
+                <div class="gaming-score"><span class="score-title">SCORE</span><span class="score">001</span></div>
             </div>
-            <div class="gaming-time">00 : 59</div>
+            <div class="gaming-time time">00  :60</div>
             <div class="gaming-topic">
-                <div class="gaming-formula"><span>11</span><span>+</span><span>12</span><span>=</span></div>
-                <div class="gaming-answer">132</div>
+                <div class="gaming-formula subject"><span>11</span><span>+</span><span>12</span><span>=</span></div>
+                <div class="gaming-answer">
+                    <input type="number" class="answer" ></input>
+                </div>
             </div>
         </div>
         <div class="end flex-center">
@@ -46,8 +48,8 @@
                 <div class="end-title">60 SECONDS CHALLENGE</div>
             </div>
             <p class="final"><span>—</span>YOUR FINAL SCORE<span>—</span></p>
-            <p class="end-score">74</p>
-            <button class="restart">TRY AGAIN!</button>
+            <p class="end-score finalScore">74</p>
+            <button class="restart btnRestart">TRY AGAIN!</button>
         </div>
         
 
