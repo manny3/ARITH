@@ -104,13 +104,31 @@
 let isPlaying = false, isEnd = false; 
 let score = 0, time = 60, ans = 0;
 const startBtn = document.querySelector('.startBtn');
-const score = document.querySelector('.score');
+const scoreNode = document.querySelector('.score');
 const timeNode = document.querySelector('.time');
 const subject = document.querySelector('.subject');
 const ansNode = document.querySelector('.answer');
 const finalScore = document.querySelector('.finalScore');
 const btnRestart = document.querySelector('.btnRestart');
-startBtn.addEventListener('click', startGame)
-btnRestart.addEventListener('click', startGame)
-ansNode.addEventListener(keyup,checkAns)
+// startBtn.addEventListener('click', startGame)
+// btnRestart.addEventListener('click', startGame)
+// ansNode.addEventListener(keyup,checkAns)
 
+function checkStatus(){
+    const start = document.querySelector('.start');
+    const gaming = document.querySelector('.gaming');
+    const end = document.querySelector('.end');
+    start.style.display = 'none';
+    gaming.style.display = 'none';
+    end.style.display = 'none';
+
+    if (!isPlaying == false && isEnd == false){
+        gaming.style.display = 'flex';
+    }else if (isPlaying == false && !isEnd == false){
+        end.style.display = 'flex';
+    }else {
+        start.style.display = 'flex';
+    }
+}
+
+checkStatus()
