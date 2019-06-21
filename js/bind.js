@@ -37,10 +37,10 @@
 // 	if (time > 40) {
 // 		subjectType(parseInt(Math.random() * 10), parseInt(Math.random() * 10), t)
 // 	} else if (time > 20) {
-// 		subjectType(parseInt(Math.random() * 90) + 10, parseInt(Math.random() * 90) + 10, t)
+		// subjectType(parseInt(Math.random() * 90) + 10, parseInt(Math.random() * 90) + 10, t)
 // 	} else {
 // 		subjectNode.style.fontSize = '80px'
-// 		subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
+		// subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
 // 	}
 // }
 // function subjectType (num1, num2, t) {
@@ -103,6 +103,7 @@
 
 let isPlaying = false, isEnd = false; 
 let score = 0, time = 60, ans = 0;
+let playing;
 const startBtn = document.querySelector('.startBtn');
 const scoreNode = document.querySelector('.score');
 const timeNode = document.querySelector('.time');
@@ -110,9 +111,54 @@ const subject = document.querySelector('.subject');
 const ansNode = document.querySelector('.answer');
 const finalScore = document.querySelector('.finalScore');
 const btnRestart = document.querySelector('.btnRestart');
-// startBtn.addEventListener('click', startGame)
-// btnRestart.addEventListener('click', startGame)
+startBtn.addEventListener('click', startGame)
+btnRestart.addEventListener('click', startGame)
 // ansNode.addEventListener(keyup,checkAns)
+
+function startGame(){
+    isPlaying = true;
+	isEnd = false
+	score = 0
+	time = 60
+    ans = 0
+    scoreNode.innerHTML = `${score}` 
+    checkStatus();
+    gaming()
+}
+
+function gaming(){
+    // createSubject()
+    playing = setInterval (()=>{
+        if (time <=0){
+            isPlaying = false;
+            isEnd = true;
+            checkStatus();
+        }
+        timeNode.innerHTML = `00 : ${time < 10 ? '0' + time : time}`
+        if (time > 0){
+            time--
+        }
+    },1000)
+}
+
+function createSubject(){
+    const t = parseInt(Math.random()*4)
+    if (time > 40) {
+        subjectType(parseInt(Math.random() * 10,parseInt(Math.random() * 10,t)
+    }else if (time > 20) {
+        subjectType(parseInt(Math.random() * 90) + 10,parseInt(Math.random() * 90) + 10,t)
+    }else {
+        subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
+    }
+}
+
+function subjectType(num1,num2,t){
+
+}
+
+// function checkAns(){
+
+// }
 
 function checkStatus(){
     const start = document.querySelector('.start');
