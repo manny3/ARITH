@@ -37,10 +37,10 @@
 // 	if (time > 40) {
 // 		subjectType(parseInt(Math.random() * 10), parseInt(Math.random() * 10), t)
 // 	} else if (time > 20) {
-		// subjectType(parseInt(Math.random() * 90) + 10, parseInt(Math.random() * 90) + 10, t)
+// 		subjectType(parseInt(Math.random() * 90) + 10, parseInt(Math.random() * 90) + 10, t)
 // 	} else {
 // 		subjectNode.style.fontSize = '80px'
-		// subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
+// 		subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
 // 	}
 // }
 // function subjectType (num1, num2, t) {
@@ -113,7 +113,7 @@ const finalScore = document.querySelector('.finalScore');
 const btnRestart = document.querySelector('.btnRestart');
 startBtn.addEventListener('click', startGame)
 btnRestart.addEventListener('click', startGame)
-// ansNode.addEventListener(keyup,checkAns)
+ansNode.addEventListener('keyup',checkAns)
 
 function startGame(){
     isPlaying = true;
@@ -126,8 +126,8 @@ function startGame(){
     gaming()
 }
 
-function gaming(){
-    // createSubject()
+function gaming() {
+    createSubject()
     playing = setInterval (()=>{
         if (time <=0){
             isPlaying = false;
@@ -141,24 +141,58 @@ function gaming(){
     },1000)
 }
 
-function createSubject(){
-    const t = parseInt(Math.random()*4)
+//取出隨機數和
+function createSubject() {
+    const t = parseInt(Math.random() * 4)
     if (time > 40) {
-        subjectType(parseInt(Math.random() * 10,parseInt(Math.random() * 10,t)
-    }else if (time > 20) {
-        subjectType(parseInt(Math.random() * 90) + 10,parseInt(Math.random() * 90) + 10,t)
-    }else {
+        subjectType(parseInt(Math.random() * 10), parseInt(Math.random() * 10), t)
+    } else if (time > 20) {
+        subjectType(parseInt(Math.random() * 90) + 10, parseInt(Math.random() * 90) + 10, t)
+    } else {
+        subjectNode.style.fontSize = '80px'
         subjectType(parseInt(Math.random() * 900) + 100, parseInt(Math.random() * 900) + 100, t)
     }
 }
 
 function subjectType(num1,num2,t){
-
+    let type = '';
+    switch(t){
+        case 0:
+            ans = ~~(num1 + num2)//~~取整數
+			type = '+'
+            break
+        case 1:
+            ans = ~~(num1 - num2)
+            type = '-'
+            break
+        case 2:
+            ans = ~~(num1 * num2)
+            type = '×' 
+            break
+        default:
+            ans = ~~(num1 / num2)
+            type = '÷'
+            break
+    }
+    subject.innerHTML = `<span>${num1}</span><span>${type}</span><span>${num2}</span><span>=</span>`
 }
 
-// function checkAns(){
-
-// }
+function checkAns(e){
+    if (e.key === 'Enter'){
+        const playerAns = parseInt(this.value)
+        this.value = ''
+        if (playerAns === ans ){
+            (time > 20)?score++ : score+= 5
+        } else {
+            if (score > 0){
+                score--
+            }
+        }
+        scoreNode.innerHTML = `${score}`
+	    createSubject()
+    }
+    
+}
 
 function checkStatus(){
     const start = document.querySelector('.start');
@@ -172,6 +206,8 @@ function checkStatus(){
         gaming.style.display = 'flex';
     }else if (isPlaying == false && !isEnd == false){
         end.style.display = 'flex';
+        document.querySelector('.finalScore').innerHTML = `${score}`
+		window.clearInterval(playing)
     }else {
         start.style.display = 'flex';
     }
